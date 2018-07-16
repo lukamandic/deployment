@@ -1,0 +1,21 @@
+version: '3'
+services:
+  node:
+    image: node:carbon
+    container_name: Node
+    build: ./node
+  nginx:
+    image: nginx:stable
+    container_name: Nginx
+    build: ./nginx
+    links:
+      - node
+    ports:
+      - "80:80"
+      - "443:443"
+  mongodb:
+    image: mongo:latest
+    container_name: Database
+    build: ./mongo
+    ports:
+      - "27017:27017"

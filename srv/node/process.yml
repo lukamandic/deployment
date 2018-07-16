@@ -1,0 +1,16 @@
+apps:
+  - name: 'frontend'
+    script: 'server.js'
+    cwd: '/srv/www/frontend'
+    exec_mode: 'cluster'
+    instance: 'max'
+    env: 
+      NODE_ENV: production
+
+  - name: 'api'
+    script: 'dist/index.js'
+    cwd: '/srv/www/api'
+    exec_mode: 'cluster'
+    instance: 'max'
+    env:
+      NODE_ENV: production
